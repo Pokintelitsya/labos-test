@@ -5,7 +5,7 @@ export const environment = {
   envName: "TEST",
   production: false,
   test: true,
-  i18nPrefix: "",
+  i18nPrefix: "/labos-test/",
   versions: {
     app: packageJson.version,
     angular: packageJson.dependencies["@angular/core"],

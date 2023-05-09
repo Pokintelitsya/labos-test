@@ -23,6 +23,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
+            "baseHref": "/labos-test/",
             "aot": true,
             "assets": [
               "src/favicon.ico",
@@ -146,6 +147,9 @@
               "devServerTarget": "stms-test-task:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
