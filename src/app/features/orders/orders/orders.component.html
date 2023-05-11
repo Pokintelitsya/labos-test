@@ -10,9 +10,9 @@
       >
         {{ "stms.orders.get-orders" | translate }}
       </a>
-      <div class="content">
-        {{ orders$ | async }}
-      </div>
+    </div>
+    <div class="content">
+      <st-orders-table [orders]="orders$ | async"></st-orders-table>
     </div>
   </div>
 </div>

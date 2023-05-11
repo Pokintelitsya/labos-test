@@ -1,14 +1,18 @@
 <div class="container">
   <div rtl>
-    <h1 class="main-heading">{{ 'stms.patients.title' | translate }}</h1>
+    <h1 class="main-heading">{{ "stms.patients.title" | translate }}</h1>
     <div class="actions">
-      <a (click)="fetchPatients()" mat-raised-button class="actions-main" color="primary">
-        {{ 'stms.patients.get-patients' | translate }}
+      <a
+        (click)="fetchPatients()"
+        mat-raised-button
+        class="actions-main"
+        color="primary"
+      >
+        {{ "stms.patients.get-patients" | translate }}
       </a>
     </div>
     <div class="content">
-      Data here
-      
+      <st-patients-table [patients]="patients$ | async"></st-patients-table>
     </div>
   </div>
 </div>

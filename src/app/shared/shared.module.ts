@@ -21,10 +21,11 @@ import { MatDividerModule } from "@angular/material/divider";
 import { MatSliderModule } from "@angular/material/slider";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
+import { MatTableModule } from "@angular/material/table";
 
 import {
   FontAwesomeModule,
-  FaIconLibrary
+  FaIconLibrary,
 } from "@fortawesome/angular-fontawesome";
 import {
   faPlus,
@@ -43,13 +44,15 @@ import {
   faLightbulb,
   faWindowMaximize,
   faStream,
-  faBook
+  faBook,
 } from "@fortawesome/free-solid-svg-icons";
 import { faMediumM, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 import { BigInputComponent } from "./components/big-input/big-input/big-input.component";
 import { BigInputActionComponent } from "./components/big-input/big-input-action/big-input-action.component";
 import { RtlSupportDirective } from "./directives/rtl-support/rtl-support.directive";
+import { OrdersTableComponent } from "./components/orders-table/orders-table.component";
+import { PatientsTableComponent } from "./components/patients-table/patients-table.component";
 
 @NgModule({
   imports: [
@@ -73,13 +76,16 @@ import { RtlSupportDirective } from "./directives/rtl-support/rtl-support.direct
     MatSnackBarModule,
     MatSlideToggleModule,
     MatDividerModule,
+    MatTableModule,
 
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   declarations: [
     BigInputComponent,
     BigInputActionComponent,
-    RtlSupportDirective
+    RtlSupportDirective,
+    OrdersTableComponent,
+    PatientsTableComponent,
   ],
   exports: [
     CommonModule,
@@ -106,13 +112,16 @@ import { RtlSupportDirective } from "./directives/rtl-support/rtl-support.direct
     MatSliderModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTableModule,
 
     FontAwesomeModule,
 
     BigInputComponent,
     BigInputActionComponent,
-    RtlSupportDirective
-  ]
+    OrdersTableComponent,
+    PatientsTableComponent,
+    RtlSupportDirective,
+  ],
 })
 export class SharedModule {
   constructor(faIconLibrary: FaIconLibrary) {

@@ -38,3 +38,10 @@ mat-card {
     left: 5px;
   }
 }
+
+:host {
+  .actions,
+  .content {
+    margin-bottom: 16px;
+  }
+}
