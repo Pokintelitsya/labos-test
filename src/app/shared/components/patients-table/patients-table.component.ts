@@ -6,6 +6,7 @@ import {
   EventEmitter,
   Output,
 } from "@angular/core";
+import { MatTableDataSource } from "@angular/material/table";
 import { Patient, PatientView } from "app/shared/models/patient.model";
 
 @Component({
@@ -15,14 +16,30 @@ import { Patient, PatientView } from "app/shared/models/patient.model";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PatientsTableComponent {
-  @Input() patients: Patient[] = [];
+  @Input() set patients(patients: PatientView[]) {
+    this.setTableData(patients);
+  }
+  @Input() withSearch = false;
   @Input() favoriteAction: "toggle" | "delete" = "toggle";
   @Output() deleteFavorite = new EventEmitter<PatientView>();
   @Output() addFavorite = new EventEmitter<PatientView>();
 
-  displayedColumns: string[] = ["code", "fullName", "age", "sex", "action"];
+  dataSource: MatTableDataSource<PatientView>;
+  displayedColumns: string[] = [
+    "code",
+    "firstName",
+    "lastName",
+    "age",
+    "sex",
+    "action",
+  ];
 
   constructor() {}
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
   toggleFavorite(patient: PatientView) {
     if (patient.isFavorite) {
@@ -34,5 +51,14 @@ export class PatientsTableComponent {
 
   deleteFromFavorite(patient: PatientView) {
     this.deleteFavorite.emit(patient);
+  }
+
+  private setTableData(patients: PatientView[]) {
+    this.dataSource = new MatTableDataSource(patients);
+    this.dataSource.filterPredicate = (data, filter) => {
+      const orderName = data.firstName.trim().toLowerCase();
+      const filterTerm = filter.trim().toLowerCase();
+      return orderName.trim().includes(filterTerm);
+    };
   }
 }

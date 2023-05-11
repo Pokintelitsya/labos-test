@@ -5,6 +5,7 @@
       <mat-tab-group>
         <mat-tab label="Patients">
           <st-patients-table
+            [withSearch]="true"
             (deleteFavorite)="onDeletePatientFavorite($event)"
             [patients]="patients$ | async"
             [favoriteAction]="'delete'"
@@ -12,6 +13,7 @@
         </mat-tab>
         <mat-tab label="Orders">
           <st-orders-table
+            [withSearch]="true"
             (deleteFavorite)="onDeleteOrderFavorite($event)"
             [orders]="orders$ | async"
             [favoriteAction]="'delete'"

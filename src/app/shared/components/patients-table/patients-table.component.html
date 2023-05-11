@@ -1,17 +1,28 @@
+<mat-form-field *ngIf="withSearch">
+  <mat-label>Search</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="First name">
+</mat-form-field>
+
 <table
-  *ngIf="patients?.length; else noPatients"
+  *ngIf="dataSource?.data.length; else noPatients"
   mat-table
-  [dataSource]="patients"
+  [dataSource]="dataSource"
   class="mat-elevation-z8 patients-table"
 >
   <ng-container matColumnDef="code">
     <th mat-header-cell *matHeaderCellDef>Code</th>
     <td mat-cell *matCellDef="let element">{{ element.code }}</td>
   </ng-container>
-  <ng-container matColumnDef="fullName">
-    <th mat-header-cell *matHeaderCellDef>Name</th>
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef>First name</th>
     <td mat-cell *matCellDef="let element">
-      {{ element.fullName || "-" }}
+      {{ element.firstName || "-" }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef>Last name</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.lastName || "-" }}
     </td>
   </ng-container>
   <ng-container matColumnDef="age">

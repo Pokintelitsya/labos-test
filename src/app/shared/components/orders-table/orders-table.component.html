@@ -1,7 +1,12 @@
+<mat-form-field *ngIf="withSearch">
+  <mat-label>Search</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Order name">
+</mat-form-field>
+
 <table
-  *ngIf="orders?.length; else noOrders"
+  *ngIf="dataSource?.data.length; else noOrders"
   mat-table
-  [dataSource]="orders"
+  [dataSource]="dataSource"
   class="mat-elevation-z8 orders-table"
 >
   <ng-container matColumnDef="orderName">
