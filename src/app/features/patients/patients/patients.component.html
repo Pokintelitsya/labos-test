@@ -6,18 +6,22 @@
         (click)="fetchPatients()"
         mat-raised-button
         class="actions-main"
-        [disabled]="patientsLoading$ | async"
+        [disabled]="(patientsLoadingState$ | async) === 'LOADING'"
         color="primary"
       >
         {{ "stms.patients.get-patients" | translate }}
       </button>
     </div>
     <div class="content">
-      <st-patients-table
-        (addFavorite)="onAddFavorite($event)"
-        (deleteFavorite)="onDeleteFavorite($event)"
-        [patients]="patients$ | async"
-      ></st-patients-table>
+      <ng-container [ngSwitch]="patientsLoadingState$ | async">
+        <st-patients-table
+          *ngSwitchCase="'LOADED'"
+          (addFavorite)="onAddFavorite($event)"
+          (deleteFavorite)="onDeleteFavorite($event)"
+          [patients]="patients$ | async"
+        ></st-patients-table>
+        <mat-spinner *ngSwitchCase="'LOADING'" [diameter]="50"></mat-spinner>
+      </ng-container>
     </div>
   </div>
 </div>

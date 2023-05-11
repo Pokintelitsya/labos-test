@@ -16,8 +16,3 @@ export const selectPatientssStatus = createSelector(
   selectPatientsFeature,
   (state: PatientsState) => state.status
 );
-
-export const selectPatientsLoading = createSelector(
-  selectPatientsFeature,
-  (state: PatientsState) => state.status === "LOADING"
-);

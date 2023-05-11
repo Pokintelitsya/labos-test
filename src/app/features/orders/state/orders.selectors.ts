@@ -44,8 +44,3 @@ export const selectOrdersStatus = createSelector(
   selectOrdersFeature,
   (state: OrdersState) => state.status
 );
-
-export const selectOrdersLoading = createSelector(
-  selectOrdersFeature,
-  (state: OrdersState) => state.status === "LOADING"
-);

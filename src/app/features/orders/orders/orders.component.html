@@ -7,18 +7,22 @@
         mat-raised-button
         class="actions-main"
         color="primary"
-        [disabled]="ordersLoading$ | async"
+        [disabled]="(ordersLoadingState$ | async) === 'LOADING'"
         type="button"
       >
         {{ "stms.orders.get-orders" | translate }}
       </button>
     </div>
     <div class="content">
-      <st-orders-table
-        (addFavorite)="onAddFavorite($event)"
-        (deleteFavorite)="onDeleteFavorite($event)"
-        [orders]="orders$ | async"
-      ></st-orders-table>
+      <ng-container [ngSwitch]="ordersLoadingState$ | async">
+        <st-orders-table
+          *ngSwitchCase="'LOADED'"
+          (addFavorite)="onAddFavorite($event)"
+          (deleteFavorite)="onDeleteFavorite($event)"
+          [orders]="orders$ | async"
+        ></st-orders-table>
+        <mat-spinner *ngSwitchCase="'LOADING'" [diameter]="50"></mat-spinner>
+      </ng-container>
     </div>
   </div>
 </div>

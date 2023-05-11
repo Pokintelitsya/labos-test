@@ -5,4 +5,16 @@
   .patients-table {
     width: 100%;
   }
+
+  .mat-checkbox {
+    margin-left: 16px;
+  }
+
+  &::ng-deep {
+    mat-checkbox {
+      label {
+        margin-bottom: 0;
+      }
+    }
+  }
 }

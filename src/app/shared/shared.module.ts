@@ -53,6 +53,7 @@ import { BigInputActionComponent } from "./components/big-input/big-input-action
 import { RtlSupportDirective } from "./directives/rtl-support/rtl-support.directive";
 import { OrdersTableComponent } from "./components/orders-table/orders-table.component";
 import { PatientsTableComponent } from "./components/patients-table/patients-table.component";
+import { AgePipe } from './pipes/age.pipe';
 
 @NgModule({
   imports: [
@@ -86,6 +87,7 @@ import { PatientsTableComponent } from "./components/patients-table/patients-tab
     RtlSupportDirective,
     OrdersTableComponent,
     PatientsTableComponent,
+    AgePipe,
   ],
   exports: [
     CommonModule,
@@ -121,6 +123,7 @@ import { PatientsTableComponent } from "./components/patients-table/patients-tab
     OrdersTableComponent,
     PatientsTableComponent,
     RtlSupportDirective,
+    AgePipe,
   ],
 })
 export class SharedModule {

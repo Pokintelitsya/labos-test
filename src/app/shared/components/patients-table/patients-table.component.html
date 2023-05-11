@@ -17,7 +17,7 @@
   <ng-container matColumnDef="age">
     <th mat-header-cell *matHeaderCellDef>Age</th>
     <td mat-cell *matCellDef="let element">
-      {{ element.age || "-" }}
+      {{ element.birthDate?.formattedDate | age }}
     </td>
   </ng-container>
   <ng-container matColumnDef="sex">
@@ -27,23 +27,20 @@
     </td>
   </ng-container>
   <ng-container matColumnDef="action">
-    <th mat-header-cell *matHeaderCellDef>Favorits</th>
+    <th mat-header-cell *matHeaderCellDef>Favorite</th>
     <td mat-cell *matCellDef="let element">
-      <button
+      <mat-checkbox
         *ngIf="favoriteAction === 'toggle'"
-        mat-raised-button
-        color="primary"
-        (click)="toggleFavorite(element)"
-      >
-        Toggle favorite ({{ !!element.isFavorite }})
-      </button>
+        (change)="toggleFavorite(element)"
+        [checked]="element.isFavorite"
+      ></mat-checkbox>
       <button
         *ngIf="favoriteAction === 'delete'"
-        mat-raised-button
+        mat-icon-button
         color="warn"
         (click)="deleteFromFavorite(element)"
       >
-        Delete favorite
+        <mat-icon><fa-icon icon="trash"></fa-icon></mat-icon>
       </button>
     </td>
   </ng-container>
@@ -53,5 +50,5 @@
 </table>
 
 <ng-template #noPatients>
-  <div>There are no patients found</div>
+  <div>No patients found</div>
 </ng-template>

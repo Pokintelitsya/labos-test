@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from "@angular/core";
 
 import { AppState, ROUTE_ANIMATIONS_ELEMENTS } from "../../../core/core.module";
-import { FetchPatients, PatientsState, selectPatientsLoading } from "../state";
+import { FetchPatients, PatientsState, selectPatientssStatus } from "../state";
 import { Store } from "@ngrx/store";
 import { selectPatientsView } from "app/features/orders/state";
 import { PatientView } from "app/shared/models/patient.model";
@@ -16,7 +16,7 @@ import { AddPatient, DeletePatient } from "app/core/favorits";
 export class PatientsComponent {
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
   patients$ = this.patientsStore.select(selectPatientsView);
-  patientsLoading$ = this.patientsStore.select(selectPatientsLoading);
+  patientsLoadingState$ = this.patientsStore.select(selectPatientssStatus);
 
   constructor(
     private patientsStore: Store<PatientsState>,

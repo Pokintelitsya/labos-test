@@ -5,8 +5,7 @@ import { Store } from "@ngrx/store";
 import {
   FetchOrders,
   OrdersState,
-  selectOrders,
-  selectOrdersLoading,
+  selectOrdersStatus,
   selectOrdersView,
 } from "../state";
 import { OrderView } from "app/shared/models/order.model";
@@ -21,7 +20,7 @@ import { AddOrder, DeleteOrder } from "app/core/favorits";
 export class OrdersComponent {
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
   orders$ = this.ordersStore.select(selectOrdersView);
-  ordersLoading$ = this.ordersStore.select(selectOrdersLoading);
+  ordersLoadingState$ = this.ordersStore.select(selectOrdersStatus);
 
   constructor(
     private ordersStore: Store<OrdersState>,
