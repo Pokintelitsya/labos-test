@@ -6,7 +6,7 @@ import { SharedModule } from "../../shared/shared.module";
 import { OrdersComponent } from "./orders/orders.component";
 import { OrdersRoutingModule } from "./orders-routing.module";
 import { StoreModule } from "@ngrx/store";
-import { OrdersEffects, ordersReducer } from "./ngrx-store";
+import { OrdersEffects, ordersReducer } from "./state";
 import { EffectsModule } from "@ngrx/effects";
 
 @NgModule({

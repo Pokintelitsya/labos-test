@@ -1,0 +1,15 @@
+<div class="container">
+  <div rtl>
+    <h1 class="main-heading">{{ "stms.favorites.title" | translate }}</h1>
+    <div class="content">
+      <mat-tab-group>
+        <mat-tab label="Patients">
+          <st-patients-table [patients]="[]"></st-patients-table>
+        </mat-tab>
+        <mat-tab label="Orders">
+          <st-orders-table [orders]="[]"></st-orders-table>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

@@ -15,7 +15,7 @@ import { Patient } from "app/shared/models/patient.model";
 export class PatientsTableComponent implements OnInit {
   @Input() patients: Patient[] = [];
 
-  displayedColumns: string[] = ["code", "fullName", "age", "sex"];
+  displayedColumns: string[] = ["code", "fullName", "age", "sex", "action"];
 
   constructor() {}
 

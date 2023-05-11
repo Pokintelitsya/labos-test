@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 
 import { ROUTE_ANIMATIONS_ELEMENTS } from "../../../core/core.module";
 import { PatientsService } from "app/shared/services/patients/patients.service";
-import { FetchPatients, PatientsState, selectPatients } from "../ngrx-store";
+import { FetchPatients, PatientsState, selectPatients } from "../state";
 import { Store } from "@ngrx/store";
 
 @Component({

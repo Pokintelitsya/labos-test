@@ -21,6 +21,7 @@ export class OrdersTableComponent implements OnInit {
     "creationDate",
     "facility",
     "patient",
+    "action"
   ];
 
   constructor() {}

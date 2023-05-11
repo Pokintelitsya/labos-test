@@ -3,7 +3,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { ROUTE_ANIMATIONS_ELEMENTS } from "../../../core/core.module";
 import { OrdersService } from "app/shared/services/orders/orders.service";
 import { Store } from "@ngrx/store";
-import { FetchOrders, OrdersState, selectOrders } from "../ngrx-store";
+import { FetchOrders, OrdersState, selectOrders } from "../state";
 
 @Component({
   selector: "st-orders",

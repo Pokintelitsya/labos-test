@@ -7,7 +7,7 @@ import { SharedModule } from "../../shared/shared.module";
 import { PatientsRoutingModule } from "./patients-routing.module";
 import { PatientsComponent } from "./patients/patients.component";
 
-import { PatientsEffects, patientsReducer } from "./ngrx-store";
+import { PatientsEffects, patientsReducer } from "./state";
 import { EffectsModule } from "@ngrx/effects";
 
 @NgModule({
