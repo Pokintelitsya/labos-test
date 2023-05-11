@@ -1,9 +1,16 @@
-import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
+import { Component, ChangeDetectionStrategy } from "@angular/core";
 
-import { ROUTE_ANIMATIONS_ELEMENTS } from "../../../core/core.module";
-import { OrdersService } from "app/shared/services/orders/orders.service";
+import { AppState, ROUTE_ANIMATIONS_ELEMENTS } from "../../../core/core.module";
 import { Store } from "@ngrx/store";
-import { FetchOrders, OrdersState, selectOrders } from "../state";
+import {
+  FetchOrders,
+  OrdersState,
+  selectOrders,
+  selectOrdersLoading,
+  selectOrdersView,
+} from "../state";
+import { OrderView } from "app/shared/models/order.model";
+import { AddOrder, DeleteOrder } from "app/core/favorits";
 
 @Component({
   selector: "st-orders",
@@ -11,15 +18,25 @@ import { FetchOrders, OrdersState, selectOrders } from "../state";
   styleUrls: ["./orders.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OrdersComponent implements OnInit {
+export class OrdersComponent {
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
-  orders$ = this.store.select(selectOrders);
+  orders$ = this.ordersStore.select(selectOrdersView);
+  ordersLoading$ = this.ordersStore.select(selectOrdersLoading);
 
-  constructor(private store: Store<OrdersState>) {}
-
-  ngOnInit() {}
+  constructor(
+    private ordersStore: Store<OrdersState>,
+    private store: Store<AppState>
+  ) {}
 
   fetchOrders() {
-    this.store.dispatch(FetchOrders());
+    this.ordersStore.dispatch(FetchOrders());
+  }
+
+  onAddFavorite(order: OrderView) {
+    this.store.dispatch(AddOrder({ order }));
+  }
+
+  onDeleteFavorite(order: OrderView) {
+    this.store.dispatch(DeleteOrder({ order }));
   }
 }

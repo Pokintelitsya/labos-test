@@ -3,8 +3,10 @@ import {
   OnInit,
   ChangeDetectionStrategy,
   Input,
+  EventEmitter,
+  Output,
 } from "@angular/core";
-import { Patient } from "app/shared/models/patient.model";
+import { Patient, PatientView } from "app/shared/models/patient.model";
 
 @Component({
   selector: "st-patients-table",
@@ -12,16 +14,25 @@ import { Patient } from "app/shared/models/patient.model";
   styleUrls: ["./patients-table.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PatientsTableComponent implements OnInit {
+export class PatientsTableComponent {
   @Input() patients: Patient[] = [];
+  @Input() favoriteAction: "toggle" | "delete" = "toggle";
+  @Output() deleteFavorite = new EventEmitter<PatientView>();
+  @Output() addFavorite = new EventEmitter<PatientView>();
 
   displayedColumns: string[] = ["code", "fullName", "age", "sex", "action"];
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.setTableData();
+  toggleFavorite(patient: PatientView) {
+    if (patient.isFavorite) {
+      this.deleteFavorite.emit(patient);
+    } else {
+      this.addFavorite.emit(patient);
+    }
   }
 
-  private setTableData() {}
+  deleteFromFavorite(patient: PatientView) {
+    this.deleteFavorite.emit(patient);
+  }
 }

@@ -2,17 +2,23 @@
   <div rtl>
     <h1 class="main-heading">{{ "stms.orders.title" | translate }}</h1>
     <div class="actions">
-      <a
+      <button
         (click)="fetchOrders()"
         mat-raised-button
         class="actions-main"
         color="primary"
+        [disabled]="ordersLoading$ | async"
+        type="button"
       >
         {{ "stms.orders.get-orders" | translate }}
-      </a>
+      </button>
     </div>
     <div class="content">
-      <st-orders-table [orders]="orders$ | async"></st-orders-table>
+      <st-orders-table
+        (addFavorite)="onAddFavorite($event)"
+        (deleteFavorite)="onDeleteFavorite($event)"
+        [orders]="orders$ | async"
+      ></st-orders-table>
     </div>
   </div>
 </div>

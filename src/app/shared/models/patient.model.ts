@@ -58,3 +58,7 @@ export interface Patient {
   followUpPatient?: any;
   isHospitalized?: boolean;
 }
+
+export interface PatientView extends Patient {
+  isFavorite?: boolean;
+}

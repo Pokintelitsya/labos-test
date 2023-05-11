@@ -100,3 +100,7 @@ export interface Order {
   exceptions?: any[];
   microOrganisms?: string;
 }
+
+export interface OrderView extends Order {
+  isFavorite?: boolean;
+}

@@ -3,8 +3,10 @@ import {
   OnInit,
   ChangeDetectionStrategy,
   Input,
+  Output,
+  EventEmitter,
 } from "@angular/core";
-import { Order } from "../../models/order.model";
+import { Order, OrderView } from "../../models/order.model";
 
 @Component({
   selector: "st-orders-table",
@@ -12,8 +14,11 @@ import { Order } from "../../models/order.model";
   styleUrls: ["./orders-table.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OrdersTableComponent implements OnInit {
-  @Input() orders: Order[] = [];
+export class OrdersTableComponent {
+  @Input() orders: OrderView[] = [];
+  @Input() favoriteAction: "delete" | "toggle" = "toggle";
+  @Output() deleteFavorite = new EventEmitter<OrderView>();
+  @Output() addFavorite = new EventEmitter<OrderView>();
 
   displayedColumns: string[] = [
     "orderName",
@@ -21,14 +26,20 @@ export class OrdersTableComponent implements OnInit {
     "creationDate",
     "facility",
     "patient",
-    "action"
+    "action",
   ];
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.setTableData();
+  toggleFavorite(order: OrderView) {
+    if (order.isFavorite) {
+      this.deleteFavorite.emit(order);
+    } else {
+      this.addFavorite.emit(order);
+    }
   }
 
-  private setTableData() {}
+  deleteFromFavorite(order: OrderView) {
+    this.deleteFavorite.emit(order);
+  }
 }

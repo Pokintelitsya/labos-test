@@ -1,9 +1,11 @@
-import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
+import { Component, ChangeDetectionStrategy } from "@angular/core";
 
-import { ROUTE_ANIMATIONS_ELEMENTS } from "../../../core/core.module";
-import { PatientsService } from "app/shared/services/patients/patients.service";
-import { FetchPatients, PatientsState, selectPatients } from "../state";
+import { AppState, ROUTE_ANIMATIONS_ELEMENTS } from "../../../core/core.module";
+import { FetchPatients, PatientsState, selectPatientsLoading } from "../state";
 import { Store } from "@ngrx/store";
+import { selectPatientsView } from "app/features/orders/state";
+import { PatientView } from "app/shared/models/patient.model";
+import { AddPatient, DeletePatient } from "app/core/favorits";
 
 @Component({
   selector: "st-patients",
@@ -11,15 +13,25 @@ import { Store } from "@ngrx/store";
   styleUrls: ["./patients.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PatientsComponent implements OnInit {
+export class PatientsComponent {
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
-  patients$ = this.store.select(selectPatients);
+  patients$ = this.patientsStore.select(selectPatientsView);
+  patientsLoading$ = this.patientsStore.select(selectPatientsLoading);
 
-  constructor(private store: Store<PatientsState>) {}
-
-  ngOnInit() {}
+  constructor(
+    private patientsStore: Store<PatientsState>,
+    private store: Store<AppState>
+  ) {}
 
   fetchPatients() {
-    this.store.dispatch(FetchPatients());
+    this.patientsStore.dispatch(FetchPatients());
+  }
+
+  onAddFavorite(patient: PatientView) {
+    this.store.dispatch(AddPatient({ patient }));
+  }
+
+  onDeleteFavorite(patient: PatientView) {
+    this.store.dispatch(DeletePatient({ patient }));
   }
 }

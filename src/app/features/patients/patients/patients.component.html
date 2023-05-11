@@ -2,17 +2,22 @@
   <div rtl>
     <h1 class="main-heading">{{ "stms.patients.title" | translate }}</h1>
     <div class="actions">
-      <a
+      <button
         (click)="fetchPatients()"
         mat-raised-button
         class="actions-main"
+        [disabled]="patientsLoading$ | async"
         color="primary"
       >
         {{ "stms.patients.get-patients" | translate }}
-      </a>
+      </button>
     </div>
     <div class="content">
-      <st-patients-table [patients]="patients$ | async"></st-patients-table>
+      <st-patients-table
+        (addFavorite)="onAddFavorite($event)"
+        (deleteFavorite)="onDeleteFavorite($event)"
+        [patients]="patients$ | async"
+      ></st-patients-table>
     </div>
   </div>
 </div>
