@@ -42,7 +42,7 @@
   "stms.orders.order-name": "שם ההזמנה",
   "stms.orders.created-by": "נוצר על ידי",
   "stms.orders.creation-date": "תאריך היווצרות",
-  "stms.patiordersents.facility": "מִתקָן",
+  "stms.orders.facility": "מִתקָן",
   "stms.orders.patient": "סבלני",
   "stms.orders.favorite": "אהוב",
   "stms.orders.not-found": "לא נמצאו הזמנות",
