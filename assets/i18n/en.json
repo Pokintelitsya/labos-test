@@ -1,7 +1,7 @@
 {
   "stms.title.long": "LabOS test task",
   "stms.title.short": "LabOS",
-  
+
   "stms.menu.patients": "Patients",
   "stms.menu.examples": "Examples",
   "stms.menu.orders": "Orders",
@@ -28,7 +28,26 @@
 
   "stms.patients.title": "Patients",
   "stms.patients.get-patients": "Get patients",
+  "stms.patients.code": "Code",
+  "stms.patients.first-name": "First name",
+  "stms.patients.last-name": "Last name",
+  "stms.patients.age": "Age",
+  "stms.patients.gender": "Gender",
+  "stms.patients.favorite": "Favorite",
+  "stms.patients.not-found": "No patients found",
+  "stms.patients.no-patients": "No patients in favorites",
 
   "stms.orders.title": "Orders",
-  "stms.orders.get-orders": "Get orders"
+  "stms.orders.get-orders": "Get orders",
+  "stms.orders.order-name": "Order name",
+  "stms.orders.created-by": "Created by",
+  "stms.orders.creation-date": "Creation date",
+  "stms.patiordersents.facility": "Facility",
+  "stms.orders.patient": "Patient",
+  "stms.orders.favorite": "Favorite",
+  "stms.orders.not-found": "No orders found",
+  "stms.orders.no-orders": "No orders in favorites",
+
+  "stms.favorites.title": "Favorites",
+  "stms.favorites.search": "Search"
 }
