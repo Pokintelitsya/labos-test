@@ -4,6 +4,14 @@
 
   .patients-table {
     width: 100%;
+
+    td {
+      text-align: left;
+    }
+  }
+
+  .empty-results {
+    padding-top: 8px;
   }
 
   .mat-checkbox {

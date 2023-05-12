@@ -28,7 +28,26 @@
 
   "stms.patients.title": "נבדקים",
   "stms.patients.get-patients": "מצא נבדקים",
+  "stms.patients.code": "קוד",
+  "stms.patients.first-name": "שם פרטי",
+  "stms.patients.last-name": "שם משפחה",
+  "stms.patients.age": "גיל",
+  "stms.patients.gender": "מִין",
+  "stms.patients.favorite": "אהוב",
+  "stms.patients.not-found": "לא נמצאו חולים",
+  "stms.patients.no-patients": "אין מטופלים במועדפים",
 
   "stms.orders.title": "הזמנות",
-  "stms.orders.get-orders": "מצא הזמנות"
+  "stms.orders.get-orders": "מצא הזמנות",
+  "stms.orders.order-name": "שם ההזמנה",
+  "stms.orders.created-by": "נוצר על ידי",
+  "stms.orders.creation-date": "תאריך היווצרות",
+  "stms.orders.facility": "מִתקָן",
+  "stms.orders.patient": "סבלני",
+  "stms.orders.favorite": "אהוב",
+  "stms.orders.not-found": "לא נמצאו הזמנות",
+  "stms.orders.no-orders": "אין הזמנות במועדפים",
+
+  "stms.favorites.title": "מועדפים",
+  "stms.favorites.search": "לחפש"
 }

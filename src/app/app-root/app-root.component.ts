@@ -35,7 +35,7 @@ export class AppRootComponent implements OnInit {
   navItems = [
     { link: "patients", label: "stms.menu.patients" },
     { link: "orders", label: "stms.menu.orders" },
-    { link: "favorits", label: "Favorites" }
+    { link: "favorits", label: "stms.favorites.title" }
   ];
   navigationSideMenu = [
     ...this.navItems,

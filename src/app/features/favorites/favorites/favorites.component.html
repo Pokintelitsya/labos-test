@@ -3,7 +3,7 @@
     <h1 class="main-heading">{{ "stms.favorites.title" | translate }}</h1>
     <div class="content">
       <mat-tab-group>
-        <mat-tab label="Patients">
+        <mat-tab label="{{ 'stms.patients.title' | translate }}">
           <st-patients-table
             [withSearch]="true"
             (deleteFavorite)="onDeletePatientFavorite($event)"
@@ -11,7 +11,7 @@
             [favoriteAction]="'delete'"
           ></st-patients-table>
         </mat-tab>
-        <mat-tab label="Orders">
+        <mat-tab label="{{ 'stms.orders.title' | translate }}">
           <st-orders-table
             [withSearch]="true"
             (deleteFavorite)="onDeleteOrderFavorite($event)"
