@@ -73,6 +73,7 @@ import {
   faInstagram,
   faYoutube
 } from "@fortawesome/free-brands-svg-icons";
+import { FavoritesEffects } from "./favorits/favorits.effects";
 
 export {
   TitleService,
@@ -122,7 +123,7 @@ export function httpLoaderFactory(http: HttpClient) {
     // ngrx
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule.forRoot(),
-    EffectsModule.forRoot([AuthEffects, SettingsEffects]),
+    EffectsModule.forRoot([AuthEffects, SettingsEffects, FavoritesEffects]),
     environment.production
       ? []
       : StoreDevtoolsModule.instrument({
