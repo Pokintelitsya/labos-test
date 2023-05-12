@@ -42,7 +42,7 @@
   "stms.orders.order-name": "Order name",
   "stms.orders.created-by": "Created by",
   "stms.orders.creation-date": "Creation date",
-  "stms.patiordersents.facility": "Facility",
+  "stms.orders.facility": "Facility",
   "stms.orders.patient": "Patient",
   "stms.orders.favorite": "Favorite",
   "stms.orders.not-found": "No orders found",
